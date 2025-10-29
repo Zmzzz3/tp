@@ -274,9 +274,7 @@ Command examples:
 
 ## Listing and Finding
 
-### Listing all clubs and contacts: `list` 
-
-</br>
+### Listing all clubs and contacts: `list`
 
 ### Finding persons: `find_person` (or `findp`)
 
@@ -293,7 +291,7 @@ Each search condition is to be supplied with one or more search keywords.
 
 Format: `find_person [SEARCH_CONDITIONS SEARCH_KEYWORDS]`
 
-</br>**Basic Usage: Finding by single field**
+**Basic Usage: Finding by single field**
 
 The find_person command can be used to locate persons using their basic fields, such as their name, address, email,
 phone and tags. To do so, use the matching search condition (as displayed in the previous section) followed
@@ -306,18 +304,18 @@ Can't remember the exact value of the field? Not to worry, find matches keywords
 meaning that calling "findp n/ john" will return persons with names like "John" and "johnathan lee".
 </div>
 
-</br>**Advanced Usage: Supplying multiple keywords**
+**Advanced Usage: Supplying multiple keywords**
 
 Each search condition may be supplied with multiple keywords, **any of** which may be used to match the target. For
 example, `findp n/ Lee Li` would return persons with names like "Jane Li" and "Lee Richard".
 
-</br>**Advanced Usage: Supplying multiple conditions**
+**Advanced Usage: Supplying multiple conditions**
 
 Each command may also be supplied with multiple search conditions. However, unlike the case with keywords,
 **all conditions** must match the target. For example, `findp t/ friend n/ John n/ Lee` will only return persons
 tagged with "friend" whose names contain both "John" and "Lee".
 
-</br>**Advanced Usage: Finding by membership status**
+**Advanced Usage: Finding by membership status**
 
 The find_club command can be used to locate persons with memberships of a particular status, such as persons with
 expired memberships. To do so, use the `s/` condition, **but only with the following keywords:**
@@ -333,15 +331,13 @@ This means that "findp s/ active" will return all active, expired and canceled m
 "a", "c", and "e" are all present.
 </div>
 
-</br>**Command examples:**
+**Command examples:**
 * `findp` displays all persons
 * `findp n/ Alex` displays `alex` and `Alex yeoh`
 * `findp n/ alex david` displays `alex` and `Alex yeoh` and `David Li`
 * `findp n/ alex n/ Yeoh` displays `Alex yeoh`
 * `findp n/ Alex t/ friend` displays only `Alex yeoh` because `Alex yeoh` is tagged with `friend` but `alex` is not </br>
   ![result for 'findp n/ Alex t/ friend'](images/findAlexFriendResult.png)
-  
-</br>
 
 ### Finding clubs: `find_club` (or `findc`)
 
@@ -358,8 +354,6 @@ Each search condition is to be supplied with one or more search keywords.
 
 Format: `find_club [SEARCH_CONDITIONS SEARCH_KEYWORDS]`
 
-</br>
-
 <div markdown="span" class="alert alert-info">
 ℹ️ Info:  
 The find_club command is identical to the find_person command in its usage, the only difference being that it
@@ -367,7 +361,7 @@ searches for clubs rather than persons. Hence, you may refer to the find_person 
 on its usage.
 </div>
 
-</br>**Command examples**
+**Command examples**
 
 Here are some sample commands:
 * `findc` displays all clubs
@@ -376,8 +370,6 @@ Here are some sample commands:
 * `findc n/ Monday n/ study` displays `Monday Study`
 * `findc n/ Study t/ 8pm` displays only `study` because `study` is tagged with `8pm` but `Monday Study` is not </br>
   ![result for 'findc n/ Study t/ NTU'](images/findStudyNtuResult.png)
-  
-</br>
 
 ### Displaying a person and their associated clubs : `membership_person` (or `mp`)
 
@@ -390,14 +382,12 @@ Finds and displays a person and the clubs which they are a member of. By default
 Format: `membership_person INDEX [MEMBERSHIP_CONDITIONS]`</br>
 Index refers to the current index of the person in the right list.
 
-</br>**Command examples:**
+**Command examples:**
 
 Suppose Jane is the second person in the current list. Jane has an active membership with ClubA, an expired one with 
 ClubE, one pending cancellation with ClubP, and a canceled one with ClubC.
 * `membership_person 2` displays Jane along with ClubA, ClubE and ClubP
 * `membership_person 2 p c` displays Jane along with ClubP and ClubC.
-
-</br>
 
 ### Displaying a club and their associated persons : `membership_club` (or `mc`)
 
@@ -410,13 +400,11 @@ Finds and displays a club and persons which are members of it. By default, displ
 Format: `membership_club INDEX [MEMBERSHIP_CONDITIONS]`</br>
 Index refers to the current index of the club in the left list.
 
-</br>**Command examples:**
+**Command examples:**
 
 Suppose Archery is the second club in the current list. Archery has an active member PersonA, an expired member PersonE, one pending cancellation PersonP, and a canceled member PersonC.
 * `membership_club 2` displays Archery along with PersonA, PersonE and PersonP
 * `membership_club 2 p c` displays Archery along with PersonP and PersonC.
-
-</br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -504,14 +492,10 @@ Copies the details of a person to the user's clipboard. By default, copies the n
 Format: `get_person INDEX [OPTIONAL_CONDITIONS]`</br>
 Index refers to the current index of the person in the right list.
 
-</br>
-
 **Command examples:**
 * `get_person 1 p e` copies the phone and email of the 1st person in the right list.
 * `get_person 2` copies the name, phone, email, address and tags of the 2nd person in the right list.</br>
   ![result for 'get_person 2'](images/getPersonResult.png)
-  
-</br>
 
 ### Copying a club's details : `get_club` (or `getc`)
 
@@ -526,15 +510,11 @@ Copies the details of a club to the user's clipboard. By default, copies the nam
 Format: `get_club INDEX [OPTIONAL_CONDITIONS]`</br>
 Index refers to the current index of the person in the right list.
 
-</br>
-
 **Command examples:**
 * `get_club 1 p e` copies the phone and email of the 1st club in the left list.
 * `get_club 2` copies the name, phone, email, address and tags of the 2nd club in the left list.
 * `get_club 2 *` copies the name, phone, email, address and tags of the 2nd club (in the left list) and its members.</br>
   ![result for 'get_club 2 /*'](images/getClubFullResult.png)
-  
-</br>
 
 ### Getting a person's membership history: `get_history` (or `geth`)
 Gets and displays the membership history of the specified person in all clubs they have been a member of.
