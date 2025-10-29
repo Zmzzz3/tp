@@ -270,11 +270,44 @@ Each search condition is to be supplied with one or more search keywords.<br>
 
 Format: `find_person [SEARCH_CONDITIONS SEARCH_KEYWORDS]...`<br>
 
+**Basic Usage: Finding by single field**<br>
+
+The find_person command can be used to locate persons using their basic fields, such as their name, address, email,
+phone and tags. To do so, use the matching search condition (as displayed in the previous section) followed
+by the keyword you wish to match for that condition (e.g. `findc n/ John`). **Do note that there should be
+a space before each search condition or keyword.**<br>
+
 <div markdown="span" class="alert alert-info">
 ℹ️ **Info:**  
-The find_person command is identical to the find_club command in its usage, the only difference being that it
-searches for people rather than clubs. Hence, you may refer to the find_club command below for detailed guidance 
-on its usage.
+Can't remember the exact value of the field? Not to worry, find matches keywords by substrings and is case-insensitive,
+meaning that calling "findp n/ john" will return persons with names like "John" and "johnathan lee".
+</div>
+
+**Advanced Usage: Supplying multiple keywords**<br>
+
+Each search condition may be supplied with multiple keywords, **any of** which may be used to match the target. For
+example, `findp n/ Lee Li` would return persons with names like "Jane Li" and "Lee Richard".<br>
+
+**Advanced Usage: Supplying multiple conditions**<br>
+
+Each command may also be supplied with multiple search conditions. However, unlike the case with keywords,
+**all conditions** must match the target. For example, `findp t/ friend n/ John n/ Lee` will only return persons
+tagged with "friend" whose names contain both "John" and "Lee".<br>
+
+**Advanced Usage: Finding by membership status**<br>
+
+The find_club command can be used to locate persons with memberships of a particular status, such as persons with
+expired memberships. To do so, use the `s/` condition, **but only with the following keywords:**<br>
+* `a` - for active memberships
+* `e` - for expired memberships
+* `p` - for memberships pending cancellation
+* `c` - for canceled memberships<br>
+
+<div markdown="span" class="alert alert-warning">
+⚠️ **Warning:**  
+Unlike other search conditions, "s/" is able to match all identifiable keywords within a single string of letters.
+This means that "findp s/ active" will return all active, expired and canceled members, since the keywords
+"a", "c", and "e" are all present.
 </div>
 
 Command examples:
@@ -299,44 +332,11 @@ Each search condition is to be supplied with one or more search keywords.<br>
 
 Format: `find_club [SEARCH_CONDITIONS SEARCH_KEYWORDS]...`<br>
 
-**Basic Usage: Finding by single field**<br>
-
-The find_club command can be used to locate clubs using their basic fields, such as their name, address, email,
-phone and tags. To do so, use the matching search condition (as displayed in the previous section) followed 
-by the keyword you wish to match for that condition (e.g. `findc n/ Archery`). **Do note that there should be
-a space before each search condition or keyword.**<br>
-
 <div markdown="span" class="alert alert-info">
 ℹ️ **Info:**  
-Can't remember the exact value of the field? Not to worry, find matches keywords by substrings and is case-insensitive,
-meaning that calling "findc n/ dance" will return clubs with names like "Dance" and "breakdance".
-</div>
-
-**Advanced Usage: Supplying multiple keywords**<br>
-
-Each search condition may be supplied with multiple keywords, **any of** which may be used to match the target. For
-example, `findc n/ Monday Tuesday` would return clubs with names like "Monday Dance" and "Tuesday Yoga".<br>
-
-**Advanced Usage: Supplying multiple conditions**<br>
-
-Each command may also be supplied with multiple search conditions. However, unlike the case with keywords, 
-**all conditions** must match the target. For example, `findc t/ 8pm n/ Archery n/ Tuesday` will only return clubs
-tagged with "8pm" whose names contain both "Archery" and "Tuesday".<br>
-
-**Advanced Usage: Finding by membership status**<br>
-
-The find_club command can be used to locate clubs containing memberships of a particular status, such as clubs with
-expired memberships. To do so, use the `s/` condition, **but only with the following keywords:**<br>
-* `a` - for active memberships
-* `e` - for expired memberships
-* `p` - for memberships pending cancellation
-* `c` - for canceled memberships<br>
-
-<div markdown="span" class="alert alert-warning">
-⚠️ **Warning:**  
-Unlike other search conditions, "s/" is able to match all identifiable keywords within a single string of letters.
-This means that "findc s/ active" will return all active, expired and canceled members, since the keywords
-"a", "c", and "e" are all present.
+The find_club command is identical to the find_person command in its usage, the only difference being that it
+searches for clubs rather than persons. Hence, you may refer to the find_person command above for detailed guidance 
+on its usage.
 </div>
 
 **Command examples**<br>
